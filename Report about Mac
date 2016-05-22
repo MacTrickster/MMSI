@@ -1,0 +1,17 @@
+printf "Serial Number is: " > ~/Desktop/SysReport.txt ; 
+system_profiler SPHardwareDataType | grep Serial | tail -c 13 >> ~/Desktop/SysReport.txt;
+printf "OS Version is: " >> ~/Desktop/SysReport.txt ;
+system_profiler SPSoftwareDataType | grep -o 'OS.*' | cut -f 3 -d ' ' >> ~/Desktop/SysReport.txt ;
+printf "Is there any posibility to upgrade RAM? - " >> ~/Desktop/SysReport.txt ;
+system_profiler SPMemoryDataType | grep Up | tail -c 4 | cut -f 1 -d ' ' >> ~/Desktop/SysReport.txt;
+printf "First dimm is = " >> ~/Desktop/SysReport.txt ;
+system_profiler SPMemoryDataType | grep Size | head -1 | cut -f 2 -d ':' | tr -d ' ' >> ~/Desktop/SysReport.txt;
+printf "Second dimm is = " >> ~/Desktop/SysReport.txt ;
+system_profiler SPMemoryDataType | grep Size | sed -n '2p' | cut -f 2 -d ':' | tr -d ' ' >> ~/Desktop/SysReport.txt;
+printf "Your Hard Disk Status is = " >> ~/Desktop/SysReport.txt ;
+system_profiler SPSerialATADataType | grep S.M | cut -f 2 -d ':' >> ~/Desktop/SysReport.txt;
+Printf "Your Current connected Wifi is = " >> ~/Desktop/SysReport.txt;
+system_profiler SPAirPortDataType | grep -A1 Current | sed -n '2p' | cut -f 1 -d ':' | tr -d ' ' >> ~/Desktop/SysReport.txt;
+clear;
+echo "I'm Done";
+open ~/Desktop/SysReport.txt
