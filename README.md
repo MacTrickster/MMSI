@@ -7,3 +7,4 @@ For now on - it's only few main thing's like:
 4 - Current status of RAM
 5 - Hard Disk S.M.A.R.T. Status
 6 - Current connected WiFi Network
+UPD: - type of format
