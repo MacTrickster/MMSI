@@ -1,0 +1,112 @@
+TOTAL_M="$(system_profiler SPHardwareDataType | grep Memory | awk '{print$2}')";
+OS_VERSION="$(system_profiler SPSoftwareDataType | grep -o 'OS.*' | awk -F '.' '{print $2}')";
+case "$OS_VERSION" in
+6) 
+if [ $TOTAL_M -lt "2" ]; then
+NEED="2";
+UPG="Yes"
+UPGRADABLE="$(system_profiler SPMemoryDataType | grep Up | awk '{print$3}')"
+if [ "$UPGRADABLE" == "$UPG" ]; then
+EMPTY="$(system_profiler SPMemoryDataType | grep Size | grep Empty)";
+if [ $? -eq 1 ]; 
+then
+echo "No empty slot"
+else
+MIN=$(expr $NEED - $TOTAL_M)
+printf "You need to buy at least $MIN GB of RAM memory\n"
+fi
+else
+echo "Your Ram is not Upgradable"
+fi
+fi;;
+7) 
+if [ $TOTAL_M -lt "2" ]; then
+NEED="2";
+UPG="Yes"
+UPGRADABLE="$(system_profiler SPMemoryDataType | grep Up | awk '{print$3}')"
+if [ "$UPGRADABLE" == "$UPG" ]; then
+EMPTY="$(system_profiler SPMemoryDataType | grep Size | grep Empty)";
+if [ $? -eq 1 ]; 
+then
+echo "No empty slot"
+else
+MIN=$(expr $NEED - $TOTAL_M)
+printf "You need to buy at least $MIN GB of RAM memory\n"
+fi
+else
+echo "Your Ram is not Upgradable"
+fi
+fi;;
+8) 
+if [ $TOTAL_M -lt "3" ]; then
+NEED="3";
+UPG="Yes"
+UPGRADABLE="$(system_profiler SPMemoryDataType | grep Up | awk '{print$3}')"
+if [ "$UPGRADABLE" == "$UPG" ]; then
+EMPTY="$(system_profiler SPMemoryDataType | grep Size | grep Empty)";
+if [ $? -eq 1 ]; 
+then
+echo "No empty slot"
+else
+MIN=$(expr $NEED - $TOTAL_M)
+printf "You need to buy at least $MIN GB of RAM memory\n"
+fi
+else
+echo "Your Ram is not Upgradable"
+fi
+fi;;
+9) 
+if [ $TOTAL_M -lt "3" ]; then
+NEED="3";
+UPG="Yes"
+UPGRADABLE="$(system_profiler SPMemoryDataType | grep Up | awk '{print$3}')"
+if [ "$UPGRADABLE" == "$UPG" ]; then
+EMPTY="$(system_profiler SPMemoryDataType | grep Size | grep Empty)";
+if [ $? -eq 1 ]; 
+then
+echo "No empty slot"
+else
+MIN=$(expr $NEED - $TOTAL_M)
+printf "You need to buy at least $MIN GB of RAM memory\n"
+fi
+else
+echo "Your Ram is not Upgradable"
+fi
+fi;;
+10) 
+if [ $TOTAL_M -lt "3" ]; then
+NEED="3";
+UPG="Yes"
+UPGRADABLE="$(system_profiler SPMemoryDataType | grep Up | awk '{print$3}')"
+if [ "$UPGRADABLE" == "$UPG" ]; then
+EMPTY="$(system_profiler SPMemoryDataType | grep Size | grep Empty)";
+if [ $? -eq 1 ]; 
+then
+echo "No empty slot"
+else
+MIN=$(expr $NEED - $TOTAL_M)
+printf "You need to buy at least $MIN GB of RAM memory\n"
+fi
+else
+echo "Your Ram is not Upgradable"
+fi
+fi;; 
+11) 
+if [ $TOTAL_M -lt "5" ]; then
+NEED="5";
+UPG="Yes"
+UPGRADABLE="$(system_profiler SPMemoryDataType | grep Up | awk '{print$3}')"
+if [ "$UPGRADABLE" == "$UPG" ]; then
+EMPTY="$(system_profiler SPMemoryDataType | grep Size | grep Empty)";
+if [ $? -eq 1 ]; 
+then
+echo "No empty slot"
+else
+MIN=$(expr $NEED - $TOTAL_M)
+printf "You need to buy at least $MIN GB of RAM memory\n"
+fi
+else
+echo "Your Ram is not Upgradable"
+fi
+fi;;
+esac
